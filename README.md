@@ -7,7 +7,7 @@ My second project in C.
 
 ## Compile & Run
 ```sh
-https://github.com/hiimsergey/ttt/
+git clone https://github.com/hiimsergey/ttt/
 cd ttt
 make
 ```
