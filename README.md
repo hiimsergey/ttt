@@ -13,3 +13,5 @@ git clone https://gitlab.com/sergeylavrent/ttt
 cd ttt
 make
 ```
+
+Oh, and you also need to have Raylib installed. On Arch Linux it's just `sudo pacman -S raylib`.
