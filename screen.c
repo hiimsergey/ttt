@@ -1,6 +1,8 @@
 #include <raylib.h>
 #include "game.h"
 
+#define TSODINGGRAY          (Color) { 0x18, 0x18, 0x18, 0xff }
+
 void screen_end(
     const Game *game,
     Rectangle *board_length_rec,
@@ -23,7 +25,7 @@ void screen_end(
             message = "Draw";
             break;
         default:
-            background = LIME;
+            background = TSODINGGRAY;
             message = "ttt";
             break;
     }
@@ -101,7 +103,7 @@ void screen_end(
 
 /* ------------- CREDITS I GUESS ---------------------------------------------*/
     DrawText(
-        "v0.1.1    GPL-3.0    github.com/hiimsergey/ttt",
+        "v0.2.0    GPL-3.0    <github.com/hiimsergey/ttt>",
         TEXT_X, game->window.height * .9,
         game->window.height * .039,
         LIGHTGRAY
@@ -128,6 +130,10 @@ void screen_listen_input(
         }
     }
 
+    if (game->length < 2) game->length = 2;
+    if (game->streak < 2) game->streak = 2;
+    if (game->streak > game->length) game->streak = game->length;
+
     if (IsKeyPressed(KEY_UP)) ++game->length;
     if (IsKeyPressed(KEY_DOWN)) --game->length;
     if (IsKeyPressed(KEY_RIGHT)) ++game->streak;
@@ -139,10 +145,7 @@ void screen_listen_input(
 
     if (CheckCollisionPointRec(mouse, *board_length_rec))
         game->length += wheel;
-    if (game->length < 2) game->length = 2;
 
     if (CheckCollisionPointRec(mouse, *win_streak_rec))
         game->streak += wheel;
-    if (game->streak < 2) game->streak = 2;
-    if (game->streak > game->length) game->streak = game->length;
 }

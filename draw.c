@@ -8,15 +8,15 @@ void draw_grid(const Game *game) {
     for (int i = 1; i < game->length; ++i) {
         // Vertical lines
         DrawRectangle(
-            (i - .1) * game->cell.width, .1 * game->cell.height,
-            .2 * game->cell.width, game->window.height - .2 * game->cell.height,
+            (i - .05) * game->cell.width, .1 * game->cell.height,
+            .1 * game->cell.width, game->window.height - .2 * game->cell.height,
             color
         );
 
         // Horizontal lines
         DrawRectangle(
-            .1 * game->cell.width, (i - .1) * game->cell.height,
-            game->window.width - .2 * game->cell.width, .2 * game->cell.height,
+            .1 * game->cell.width, (i - .05) * game->cell.height,
+            game->window.width - .2 * game->cell.width, .1 * game->cell.height,
             color
         );
     }

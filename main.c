@@ -4,6 +4,8 @@
 #include "logic.h"
 #include "screen.h"
 
+#define TSODINGGRAY (Color) { 0x18, 0x18, 0x18, 0xff }
+
 int main() {
     SetConfigFlags(FLAG_WINDOW_RESIZABLE);
     InitWindow(512, 512, "ttt v0.0.1");
@@ -28,7 +30,7 @@ int main() {
             screen_end(&game, &board_length_rec, &win_streak_rec);
             screen_listen_input(&game, &board_length_rec, &win_streak_rec);
         } else {
-            ClearBackground(RAYWHITE);
+            ClearBackground(TSODINGGRAY);
 
             game.cell.width = game.window.width / game.length;
             game.cell.height = game.window.height / game.length;
