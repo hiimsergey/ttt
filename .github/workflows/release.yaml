@@ -22,7 +22,8 @@ jobs:
           cd external/raylib/build
           cmake .. -DCMAKE_INSTALL_PREFIX=$GITHUB_WORKSPACE/external/raylib-install \
             -DCUSTOMIZE_BUILD=ON -DPLATFORM=Desktop -DGLFW_BUILD_WAYLAND=ON \
-            -DGLFW_BUILD_X11=ON -DBUILD_SHARED_LIBS=OFF
+            -DGLFW_BUILD_X11=ON -DBUILD_SHARED_LIBS=OFF \
+            -DX11_X11_INCLUDE_PATH=/usr/include -DX11_X11_LIB=/usr/lib/libX11.so
           cmake --build . --target install
 
       - name: Build Project
