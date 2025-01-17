@@ -1,6 +1,10 @@
 #include <raylib.h>
 #include "game.h"
 
+void logic_clear_board(Game *game) {
+    for (int i = 0; i < game->length * game->length; ++i) game->board[i] = NONE;
+}
+
 bool draw_check(Game *game) {
     for (int x = 0; x < game->length; ++x)
         for (int y = 0; y < game->length; ++y)
@@ -74,10 +78,6 @@ bool secondary_diagonal_check(const Game *game, int x, int y) {
     return false;
 }
 
-void clear_board(Game *game) {
-    for (int i = 0; i < game->length * game->length; ++i) game->board[i] = NONE;
-}
-
 bool current_player_won(Game *game, const int x, const int y) {
     if (
         vertical_check(game, x)
@@ -87,7 +87,7 @@ bool current_player_won(Game *game, const int x, const int y) {
     ) {
         game->player.won = game->player.current;
         game->player.current = NONE;
-        clear_board(game);
+        logic_clear_board(game);
         return true;
     }
 
@@ -98,7 +98,7 @@ void logic_listen_input(Game *game) {
     if (IsKeyPressed(KEY_Q)) {
         game->player.won = NONE;
         game->player.current = NONE;
-        clear_board(game);
+        logic_clear_board(game);
         return;
     }
 

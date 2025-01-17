@@ -1,6 +1,7 @@
 #include <stddef.h>
 #include <raylib.h>
 #include "game.h"
+#include "logic.h"
 
 #define TSODINGGRAY          (Color) { 0x18, 0x18, 0x18, 0xff }
 
@@ -126,6 +127,7 @@ void screen_listen_input(
         );
         if (game->board == NULL)
             TraceLog(LOG_ERROR, "Failed to allocate resources to resize game board");
+        logic_clear_board(game);
 
         return;
     }
