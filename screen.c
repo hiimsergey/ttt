@@ -101,7 +101,7 @@ void screen_end(
 
 /* ------------- CREDITS I GUESS ---------------------------------------------*/
     DrawText(
-        "v0.1.0    GPL-3.0    github.com/hiimsergey/ttt",
+        "v0.1.1    GPL-3.0    github.com/hiimsergey/ttt",
         TEXT_X, game->window.height * .9,
         game->window.height * .039,
         LIGHTGRAY
