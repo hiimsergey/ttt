@@ -128,6 +128,11 @@ void screen_listen_input(
         }
     }
 
+    if (IsKeyPressed(KEY_UP)) ++game->length;
+    if (IsKeyPressed(KEY_DOWN)) --game->length;
+    if (IsKeyPressed(KEY_RIGHT)) ++game->streak;
+    if (IsKeyPressed(KEY_LEFT)) --game->streak;
+
     const Vector2 mouse = GetMousePosition();
     const int wheel = GetMouseWheelMove();
     if (!wheel) return;
