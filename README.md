@@ -1,5 +1,5 @@
 # ttt
-![screenshot](https://github.com/user-attachments/assets/daacd19c-2fa9-4b23-97a5-cfe19b06a461)
+![screenshot](https://github.com/user-attachments/assets/8946e665-ab47-4404-9a61-ef5b2b84b370)
 
 A simple Tic-Tac-Toe game written in C using Raylib.
 
