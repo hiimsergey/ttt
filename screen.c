@@ -1,3 +1,4 @@
+#include <stddef.h>
 #include <raylib.h>
 #include "game.h"
 
@@ -121,13 +122,12 @@ void screen_listen_input(
 
         game->board = MemRealloc(
             game->board,
-            sizeof(enum state *) * game->length
+            game->length * game->length * sizeof(enum state *)
         );
+        if (game->board == NULL)
+            TraceLog(LOG_ERROR, "Failed to allocate resources to resize game board");
 
-        for (int x = 0; x < game->length; ++x) {
-            game->board[x] = MemAlloc(sizeof(enum state) * game->length);
-            for (int y = 0; y < game->length; ++y) game->board[x][y] = NONE;
-        }
+        return;
     }
 
     if (game->length < 2) game->length = 2;

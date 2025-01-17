@@ -1,3 +1,4 @@
+#include <stddef.h>
 #include <raylib.h>
 #include "game.h"
 #include "draw.h"
@@ -6,18 +7,23 @@
 
 #define TSODINGGRAY (Color) { 0x18, 0x18, 0x18, 0xff }
 
-int main() {
+int main(void) {
     SetConfigFlags(FLAG_WINDOW_RESIZABLE);
+    SetTraceLogLevel(LOG_ERROR);
     InitWindow(512, 512, "ttt v0.0.1");
-    SetTargetFPS(30);
 
     Game game = {
-        .board = MemAlloc(sizeof(enum state *) * 3),
+        .board = MemAlloc(9 * sizeof(enum state *)),
         .player.current = NONE,
         .player.won = NONE,
         .length = 3,
         .streak = 3
     };
+    if (game.board == NULL) {
+        TraceLog(LOG_ERROR, "Failed to allocate resources for the game board!");
+        CloseWindow();
+        return 1;
+    }
 
     while (!WindowShouldClose()) {
         game.window.width = GetScreenWidth();
@@ -43,8 +49,6 @@ int main() {
         EndDrawing();
     }
 
-    for (int x = 0; x < game.length; ++x) MemFree(game.board[x]);
     MemFree(game.board);
-
     CloseWindow();
 }

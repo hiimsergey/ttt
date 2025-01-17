@@ -7,11 +7,34 @@ You can customize the board length in cells and the length of the needed streak 
 
 My second project in C.
 
-## Compile & Run for Linux
+## Compile & Run (on Linux at least)
+
+### If you have raylib installed on the system
 ```sh
 git clone https://github.com/hiimsergey/ttt
 cd ttt
-make
+make dyn
 ```
 
-Oh, and you also need to have Raylib installed. On Arch Linux it's just `sudo pacman -S raylib`.
+### If you want to compile Raylib yourself
+```sh
+git clone --recursive https://github.com/hiimsergey/ttt
+cd ttt/external/raylib
+```
+
+Now, compile Raylib with your desired options. See [here](https://github.com/raysan5/raylib/wiki/CMake-Build-Options). An example would be:
+
+```sh
+mkdir build
+cd build
+cmake .. -DPLATFORM=Desktop -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=../install
+cmake --build . --target install
+```
+
+Now, compile ttt:
+
+```sh
+cd ../../..
+make
+#make semistatic # If the binary should only depend on GLFW
+```

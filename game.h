@@ -1,10 +1,10 @@
 #ifndef TTT_GAME_H
 #define TTT_GAME_H
 
-enum state { X, O, DRAW, NONE };
+enum state { NONE, X, O, DRAW };
 
 typedef struct {
-    enum state **board;     // 2D-array of every cell
+    enum state *board;     // 2D-array of every cell
 
     struct {
         int width, height;

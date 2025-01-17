@@ -64,7 +64,7 @@ void draw_o(const Game *game, const int x, const int y) {
 void draw_tokens(const Game *game) {
     for (int x = 0; x < game->length; ++x)
         for (int y = 0; y < game->length; ++y)
-            switch (game->board[x][y]) {
+            switch (game->board[x * game->length + y]) {
                 case X:
                     draw_x(game, x, y);
                     break;
