@@ -9,7 +9,7 @@ My second project in C.
 
 ## Compile & Run for Linux
 ```sh
-git clone https://gitlab.com/sergeylavrent/ttt
+git clone https://github.com/hiimsergey/ttt
 cd ttt
 make
 ```
