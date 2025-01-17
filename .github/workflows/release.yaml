@@ -20,7 +20,9 @@ jobs:
           git clone https://github.com/raysan5/raylib external/raylib
           mkdir -p external/raylib/build
           cd external/raylib/build
-          cmake .. -DCMAKE_INSTALL_PREFIX=$GITHUB_WORKSPACE/external/raylib-install
+          cmake .. -DCMAKE_INSTALL_PREFIX=$GITHUB_WORKSPACE/external/raylib-install \
+            -DCUSTOMIZE_BUILD=ON -DPLATFORM=Desktop -DGLFW_BUILD_WAYLAND=ON \
+            -DGLFW_BUILD_X11=ON -DBUILD_SHARED_LIBS=OFF
           cmake --build . --target install
 
       - name: Build Project
