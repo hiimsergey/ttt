@@ -10,7 +10,7 @@
 int main(void) {
     SetConfigFlags(FLAG_WINDOW_RESIZABLE);
     SetTraceLogLevel(LOG_ERROR);
-    InitWindow(512, 512, "ttt v0.0.1");
+    InitWindow(512, 512, "ttt v0.2.0");
 
     Game game = {
         .board = MemAlloc(9 * sizeof(enum state *)),
