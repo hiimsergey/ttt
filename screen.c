@@ -105,7 +105,7 @@ void screen_end(
 
 /* ------------- CREDITS I GUESS ---------------------------------------------*/
     DrawText(
-        "v0.2.0    GPL-3.0    <github.com/hiimsergey/ttt>",
+        "v0.2.1    GPL-3.0    <github.com/hiimsergey/ttt>",
         TEXT_X, game->window.height * .9,
         game->window.height * .039,
         LIGHTGRAY
@@ -136,10 +136,10 @@ void screen_listen_input(
     if (game->streak < 2) game->streak = 2;
     if (game->streak > game->length) game->streak = game->length;
 
-    if (IsKeyDown(KEY_UP)) ++game->length;
-    if (IsKeyDown(KEY_DOWN)) --game->length;
-    if (IsKeyDown(KEY_RIGHT)) ++game->streak;
-    if (IsKeyDown(KEY_LEFT)) --game->streak;
+    if (IsKeyPressed(KEY_UP)) ++game->length;
+    if (IsKeyPressed(KEY_DOWN)) --game->length;
+    if (IsKeyPressed(KEY_RIGHT)) ++game->streak;
+    if (IsKeyPressed(KEY_LEFT)) --game->streak;
 
     const Vector2 mouse = GetMousePosition();
     const int wheel = GetMouseWheelMove();
